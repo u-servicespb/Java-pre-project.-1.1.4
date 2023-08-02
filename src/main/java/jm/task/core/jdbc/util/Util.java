@@ -14,8 +14,7 @@ public class Util {
     private static final String PASSWORD = "admin";
     private static SessionFactory sessionFactory = null;
 
-    public static SessionFactory getConnection() {
-
+    public static SessionFactory getSessionFactory() {
         try {
             Configuration configuration = new Configuration()
                     .setProperty("hibernate.connection.driver_class", DRIVER)
