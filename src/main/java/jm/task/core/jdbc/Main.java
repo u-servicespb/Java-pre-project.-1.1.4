@@ -2,11 +2,13 @@ package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
+
+import javax.transaction.SystemException;
 import java.sql.SQLException;
 import static jm.task.core.jdbc.util.Util.closeConnection;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, SystemException {
         UserService userService = new UserServiceImpl();
 
         userService.createUsersTable(); // Создание таблицы User(ов)
@@ -18,7 +20,7 @@ public class Main {
 
         userService.getAllUsers(); // Получение всех User из базы и вывод в консоль ( должен быть переопределен toString в классе User)
 
-        userService.removeUserById(77); // Удаление User из таблицы ( по id )
+        userService.removeUserById(3); // Удаление User из таблицы ( по id )
 
         userService.cleanUsersTable(); // Очистка таблицы User(ов)
         userService.dropUsersTable();  // Удаление таблицы

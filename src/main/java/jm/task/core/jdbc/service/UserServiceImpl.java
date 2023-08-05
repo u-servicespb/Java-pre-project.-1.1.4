@@ -4,12 +4,13 @@ import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.model.User;
 
+import javax.transaction.SystemException;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
     public UserDao userDaoHibernate = new UserDaoHibernateImpl();
 
-    public void createUsersTable() {
+    public void createUsersTable() throws SystemException {
         userDaoHibernate.createUsersTable();
         System.out.println("Таблица создана");
     }
